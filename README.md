@@ -2,6 +2,12 @@
 
 A modern, full-stack inventory management application built with React and Node.js. This application allows you to manage products, track inventory levels, view analytics, and monitor stock status through an intuitive dashboard interface.
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/alidiamond1/-full-stack-application)
+[![React](https://img.shields.io/badge/React-19.2-blue)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)](https://www.mysql.com/)
+
 ## 📋 Project Description
 
 This is a comprehensive inventory management system that provides:
@@ -69,8 +75,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd "simple full-stack application"
+git clone https://github.com/alidiamond1/-full-stack-application.git
+cd "-full-stack-application"
 ```
 
 ### 2. Backend Setup
@@ -156,7 +162,7 @@ http://localhost:5173
 ## 📁 Project Structure
 
 ```
-simple full-stack application/
+-full-stack-application/
 ├── Backend/
 │   ├── src/
 │   │   ├── config/
@@ -250,6 +256,10 @@ Make sure to set up your `.env` file in the Backend directory with the correct d
 ## 🤝 Contributing
 
 Feel free to submit issues and enhancement requests!
+
+## 🔗 Repository
+
+**GitHub Repository**: [https://github.com/alidiamond1/-full-stack-application](https://github.com/alidiamond1/-full-stack-application)
 
 ## 📄 License
 

@@ -194,7 +194,7 @@ http://localhost:5173
 │   │   │   └── product.js            # Product model
 │   │   ├── routes/
 │   │   │   └── products.js           # Product API routes
-│   │   ├── index.js                  # Server entry point
+│   │   ├── server.js                  # Server entry point
 │   │   └── seed.js                   # Database seeder
 │   ├── package.json
 │   └── .env                          # Environment variables (create this)

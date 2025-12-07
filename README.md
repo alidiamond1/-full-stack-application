@@ -8,6 +8,24 @@ A modern, full-stack inventory management application built with React and Node.
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)](https://www.mysql.com/)
 
+## 📸 Screenshots
+
+### Dashboard Overview
+![Dashboard](screenshots/Screenshot%202025-12-07%20204033.png)
+*Main dashboard showing inventory statistics, charts, and product table*
+
+### Product Management
+![Product Table](screenshots/Screenshot%202025-12-07%20204056.png)
+*Product table displaying products with images, prices, quantities, and action buttons for edit/delete operations with real-time search functionality*
+
+### Add/Edit Product Modal
+![Add Product](screenshots/Screenshot%202025-12-07%20204113.png)
+*Responsive modal for adding or editing products with live image preview and form validation*
+
+### Product Details View
+![Product Details](screenshots/Screenshot%202025-12-07%20204135.png)
+*Detailed product editing interface showing all product fields with image preview functionality*
+
 ## 📋 Project Description
 
 This is a comprehensive inventory management system that provides:

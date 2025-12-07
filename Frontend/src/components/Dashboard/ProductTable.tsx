@@ -2,15 +2,48 @@ import React, { useState } from 'react';
 import { Edit2, Trash2, AlertCircle, Image as ImageIcon } from 'lucide-react';
 import type { Product } from '../../types/Product';
 
+/**
+ * ProductTable Component Props
+ * 
+ * @property products - Array of products to display in the table
+ * @property onEdit - Callback function called when edit button is clicked (passes the product)
+ * @property onDelete - Callback function called when delete button is clicked (passes the product id)
+ */
 interface ProductTableProps {
     products: Product[];
     onEdit: (product: Product) => void;
     onDelete: (id: number) => void;
 }
 
+/**
+ * ProductTable Component
+ * 
+ * Displays products in a table format with the following features:
+ * - Product images with fallback placeholder
+ * - Low stock indicators (red background and warning icon for quantity < 5)
+ * - Color-coded quantity badges (green for normal, amber for low stock)
+ * - Edit and delete action buttons
+ * - Responsive design with horizontal scroll on small screens
+ * 
+ * @param products - Array of products to display
+ * @param onEdit - Function to handle edit action
+ * @param onDelete - Function to handle delete action
+ */
 const ProductTable: React.FC<ProductTableProps> = ({ products, onEdit, onDelete }) => {
+    /**
+     * Tracks which product images have failed to load
+     * Key: product ID, Value: true if image failed to load
+     * Used to show placeholder icon instead of broken image
+     */
     const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
+    /**
+     * Handles image load errors
+     * When an image fails to load, marks it in the imageErrors state
+     * so we can show a placeholder icon instead
+     * 
+     * @param productId - The ID of the product whose image failed to load
+     */
     const handleImageError = (productId?: number) => {
         if (productId) {
             setImageErrors(prev => ({ ...prev, [productId]: true }));
@@ -19,8 +52,10 @@ const ProductTable: React.FC<ProductTableProps> = ({ products, onEdit, onDelete 
 
     return (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            {/* Scrollable container for responsive design */}
             <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500">
+                    {/* Table Header */}
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-100">
                         <tr>
                             <th className="px-6 py-4 font-semibold">Image</th>
@@ -32,6 +67,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ products, onEdit, onDelete 
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
+                        {/* Empty State - Show message when no products */}
                         {products.length === 0 ? (
                             <tr>
                                 <td colSpan={6} className="px-6 py-8 text-center text-gray-400">
@@ -39,8 +75,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ products, onEdit, onDelete 
                                 </td>
                             </tr>
                         ) : (
+                            // Map through products and render each as a table row
                             products.map((product) => {
+                                // Check if product has a valid image URL
                                 const hasImage = product.image && product.image.trim() !== '';
+                                // Check if the image failed to load (from error tracking)
                                 const imageFailed = product.id ? imageErrors[product.id] : false;
                                 
                                 return (

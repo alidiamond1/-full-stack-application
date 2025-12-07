@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="#3B82F6" opacity="0.1"/>
+  
+  <!-- Main Package/Box -->
+  <rect x="25" y="30" width="50" height="40" rx="4" fill="#3B82F6" stroke="#2563EB" stroke-width="2"/>
+  
+  <!-- Package Top Flap -->
+  <path d="M 25 30 L 50 20 L 75 30" stroke="#2563EB" stroke-width="2" fill="none"/>
+  <polygon points="25,30 50,20 50,30" fill="#2563EB" opacity="0.3"/>
+  
+  <!-- Package Sealing Tape -->
+  <line x1="35" y1="50" x2="65" y2="50" stroke="#2563EB" stroke-width="2" stroke-dasharray="3,3"/>
+  
+  <!-- Inventory Items/Boxes Inside -->
+  <rect x="35" y="55" width="12" height="10" rx="1" fill="#60A5FA" opacity="0.7"/>
+  <rect x="53" y="55" width="12" height="10" rx="1" fill="#60A5FA" opacity="0.7"/>
+  
+  <!-- Checkmark/Quality Indicator -->
+  <circle cx="70" cy="40" r="8" fill="#10B981"/>
+  <path d="M 67 40 L 69 42 L 73 38" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Stack Indicator (Small boxes) -->
+  <rect x="20" y="45" width="8" height="8" rx="1" fill="#93C5FD" opacity="0.6"/>
+  <rect x="20" y="55" width="8" height="8" rx="1" fill="#93C5FD" opacity="0.6"/>
+  <rect x="72" y="45" width="8" height="8" rx="1" fill="#93C5FD" opacity="0.6"/>
+  <rect x="72" y="55" width="8" height="8" rx="1" fill="#93C5FD" opacity="0.6"/>
+</svg>
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Plus, Search, Package, DollarSign, AlertTriangle, TrendingUp } from 'lucide-react';
+import { Plus, Search, Package, DollarSign, AlertTriangle, TrendingUp, X } from 'lucide-react';
 import ProductTable from '../components/Dashboard/ProductTable';
 import InventoryCharts from '../components/Dashboard/InventoryCharts';
 import ProductModal from '../components/ProductModal/ProductModal';
@@ -78,13 +78,22 @@ const Dashboard: React.FC = () => {
         setEditingProduct(null);
     };
 
-    // Filter products based on search term
+    /**
+     * Filter products based on search term in real-time
+     * This memoized value recalculates whenever products or searchTerm changes
+     * Searches in both product name and description (case-insensitive)
+     */
     const filteredProducts = useMemo(() => {
+        // If search is empty, return all products
         if (!searchTerm.trim()) return products;
-        const term = searchTerm.toLowerCase();
+        
+        // Convert search term to lowercase for case-insensitive matching
+        const term = searchTerm.toLowerCase().trim();
+        
+        // Filter products that match the search term in name or description
         return products.filter(product =>
             product.name.toLowerCase().includes(term) ||
-            product.description?.toLowerCase().includes(term)
+            (product.description && product.description.toLowerCase().includes(term))
         );
     }, [products, searchTerm]);
 
@@ -108,7 +117,7 @@ const Dashboard: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Header Section */}
                 <div className="mb-8">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div>
                             <h1 className="text-3xl font-bold text-gray-900 mb-2">Inventory Dashboard</h1>
                             <p className="text-gray-600">Manage your products and track inventory levels</p>
@@ -120,18 +129,6 @@ const Dashboard: React.FC = () => {
                             <Plus size={20} />
                             Add Product
                         </button>
-                    </div>
-
-                    {/* Search Bar */}
-                    <div className="relative max-w-md">
-                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                        <input
-                            type="text"
-                            placeholder="Search products by name or description..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
-                        />
                     </div>
                 </div>
 
@@ -201,7 +198,7 @@ const Dashboard: React.FC = () => {
 
                 {/* Products Table Section */}
                 <div className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                         <h2 className="text-xl font-semibold text-gray-900">
                             Products
                             {searchTerm && (
@@ -210,6 +207,31 @@ const Dashboard: React.FC = () => {
                                 </span>
                             )}
                         </h2>
+                    </div>
+
+                    {/* Search Bar - Moved to Products Table Section */}
+                    <div className="relative mb-4">
+                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                        <input
+                            type="text"
+                            placeholder="Search products by name or description..."
+                            value={searchTerm}
+                            onChange={(e) => {
+                                // Update search term immediately for real-time filtering
+                                setSearchTerm(e.target.value);
+                            }}
+                            className="w-full pl-12 pr-10 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+                        />
+                        {/* Clear search button - appears when there's text */}
+                        {searchTerm && (
+                            <button
+                                onClick={() => setSearchTerm('')}
+                                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                                title="Clear search"
+                            >
+                                <X size={18} />
+                            </button>
+                        )}
                     </div>
 
                     {loading ? (

@@ -246,21 +246,6 @@ The backend provides the following RESTful API endpoints:
    - Check the stock levels chart
    - Products with low stock (< 5 units) are highlighted in red
 
-## 🛠️ Development
-
-### Building for Production
-
-**Frontend:**
-```bash
-cd Frontend
-npm run build
-```
-
-The production build will be in the `Frontend/dist` directory.
-
-**Backend:**
-The backend runs directly with Node.js in production.
-
 ### Environment Variables
 
 Make sure to set up your `.env` file in the Backend directory with the correct database credentials.
@@ -279,11 +264,7 @@ Feel free to submit issues and enhancement requests!
 
 **GitHub Repository**: [https://github.com/alidiamond1/-full-stack-application](https://github.com/alidiamond1/-full-stack-application)
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
 
----
-
-**Happy Coding! 🚀**
+**Happy Coding! Ali Nor Abdulle🚀**
 

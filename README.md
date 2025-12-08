@@ -256,9 +256,6 @@ Make sure to set up your `.env` file in the Backend directory with the correct d
 - Product images are loaded from URLs. Ensure image URLs are publicly accessible.
 - The database tables are automatically created/synced when the backend server starts (using Sequelize's `sync` method).
 
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
 
 ## 🔗 Repository
 

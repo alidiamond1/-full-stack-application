@@ -70,14 +70,14 @@ This is a comprehensive inventory management system that provides:
 
 #### Frontend Choices:
 - **React + TypeScript**: Provides component reusability, strong typing, and excellent developer experience. React's virtual DOM ensures efficient updates, while TypeScript catches errors at compile-time.
-- **Vite**: Chosen over Create React App for its superior performance, faster hot module replacement, and better build times. It uses native ES modules for instant server start.
-- **Tailwind CSS**: Enables rapid UI development without writing custom CSS. The utility-first approach makes it easy to create consistent, responsive designs quickly.
+- **Vite**: Chosen over Create React App for its superior performance, faster hot module replacement, and better build times.
+- **Tailwind CSS**: Enables rapid UI development without writing custom CSS.
 - **Recharts**: Selected for its React-native approach, making it easy to integrate charts that respond to data changes seamlessly.
 
 #### Backend Choices:
 - **Node.js + Express**: JavaScript on both frontend and backend allows code sharing and a unified development experience. Express provides a minimal, flexible framework.
 - **Sequelize ORM**: Simplifies database operations with an object-relational mapping approach. It handles migrations, relationships, and provides type-safe queries.
-- **MySQL**: Reliable, widely-used relational database that's perfect for structured inventory data with relationships and transactions.
+- **MySQL**: is an open source relational database system. Reliable, widely-used relational database that's perfect for structured inventory data with relationships and transactions.
 
 ## 📦 Prerequisites
 
